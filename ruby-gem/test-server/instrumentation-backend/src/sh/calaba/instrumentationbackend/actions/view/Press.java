@@ -18,7 +18,6 @@ public class Press implements Action {
         String description = args[0];
         // Try to press button
 
-        InstrumentationBackend.solo.searchButton(description);
         helpText += "Buttons:\n";
         for (Button b : InstrumentationBackend.solo.getCurrentButtons()) {
             helpText += b.getText() + "\n";
