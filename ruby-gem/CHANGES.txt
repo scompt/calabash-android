@@ -1,3 +1,14 @@
+0.2.12:
+      Various small improvements and bug fixes.
+
+      Fixed support for scenario outline.
+      Added support for interacting with Google Maps.
+
+0.2.11:
+      Added is_enabled action that determines if a view is enabled.
+
+      Cleaner return values when executing javascript.
+
 0.2.10:
       Various small improvements and bug fixes.
 

@@ -200,9 +200,11 @@ module Operations
       filename_prefix = FeatureNameMemory.feature_name.gsub(/\s+/, '_').downcase
       begin
         Timeout.timeout(30) do
-          file_name = "#{path}/#{filename_prefix}_#{StepCounter.step_line}.png"
-          log "Taking screenshoot to #{file_name} from device: #{@serial}"
-          system("java -jar #{File.dirname(__FILE__)}/lib/screenShotTaker.jar #{file_name} #{device_args}")
+          file_name = "#{path}/#{filename_prefix}_#{FeatureNameMemory.invocation}_#{StepCounter.step_line}.png"
+          image = http("/screenshot")
+          open(file_name ,"wb") { |file|
+            file.write(image)
+          }
           log "Screenshot stored in: #{file_name}"
         end
       rescue Timeout::Error
